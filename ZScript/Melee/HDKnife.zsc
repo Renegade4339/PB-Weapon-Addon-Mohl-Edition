@@ -62,7 +62,7 @@ class HDCombatKnife:HD_PB_UnarmedWeapon{
 		..WEPHELP_ALTFIRE.."   Lunge\n"
 		..WEPHELP_RELOAD.."   Distracting strike\n"
 		..WEPHELP_FIREMODE.."   Grab/Drag\n"
-		..WEPHELP_UNLOAD.."or"..WEPHELP_ZOOM.."+"..WEPHELP_DROP.."   Distracting projectile\n" 
+		..WEPHELP_ZOOM.."+"..WEPHELP_DROP.."   Throw knife\n" 
 		;
 	}
 	
@@ -481,7 +481,7 @@ class HDCombatKnife:HD_PB_UnarmedWeapon{
 		//sus
 	impostorstab:
 		CKF0 D 0 A_WeaponReady(WRF_NOSWITCH|WRF_NOFIRE);
-		#### D 0{
+		#### A 0{
 		let hdp=hdplayerpawn(self);
 		if(hdp){
 			if(hdp.fatigue>=30)setweaponstate("nope");
@@ -489,7 +489,7 @@ class HDCombatKnife:HD_PB_UnarmedWeapon{
 			}
 		HDStab(8);
 		}
-		#### D 2;
+		#### D 3;
 		#### CBE 1;
 		#### E 1;
 		#### E 0 A_JumpIf(pressingaltfire(),"altfire");
