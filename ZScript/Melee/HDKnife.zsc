@@ -58,10 +58,11 @@ class HDCombatKnife:HD_PB_UnarmedWeapon{
 	override string gethelptext(){
 		return
 		WEPHELP_FIRE.."  Stab\n"
+		..WEPHELP_ZOOM"+"..WEPHELP_FIRE.."   Rapid Stab\n"
 		..WEPHELP_ALTFIRE.."   Lunge\n"
 		..WEPHELP_RELOAD.."   Distracting strike\n"
 		..WEPHELP_FIREMODE.."   Grab/Drag\n"
-		..WEPHELP_UNLOAD.."   Distracting projectile\n"
+		..WEPHELP_UNLOAD.."or"..WEPHELP_ZOOM.."+"..WEPHELP_DROP.."   Distracting projectile\n" 
 		;
 	}
 	
@@ -483,7 +484,7 @@ class HDCombatKnife:HD_PB_UnarmedWeapon{
 		#### D 0{
 		let hdp=hdplayerpawn(self);
 		if(hdp){
-			if(hdp.fatigue>=30){setweaponstate("hold");return;}
+			if(hdp.fatigue>=30)setweaponstate("nope");
 			else hdp.fatigue+=2;
 			}
 		HDStab(8);
